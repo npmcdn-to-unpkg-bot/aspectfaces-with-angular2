@@ -1,0 +1,22 @@
+{
+  "name": "aspectfaces-with-angular2",
+  "version": "1.0.0",
+  "scripts": {
+    "lite-server": "lite-server",
+    "http-server": "http-server"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "2.0.0-beta.6",
+    "systemjs": "0.19.20",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.14"
+  },
+  "devDependencies": {
+    "lite-server": "2.1.0",
+    "http-server": "0.9.0"
+  }
+}
