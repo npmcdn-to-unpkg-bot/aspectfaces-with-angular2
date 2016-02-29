@@ -8,43 +8,59 @@ The example uses **Node.js** and **npm** to manage dependencies.
 
 ## Installation
 
-First clone the repository to your drive. Then navigate to the project directory and run ```npm install``` to install dependencies. After that you can run the example on your server or you can use ```npm run lite-server``` or ```npm run http-server```.
+First clone the repository to your drive. Then navigate to the project directory and run ```npm install``` to install dependencies. After that you can run the example by using ```npm start```.
 
 ## Usage
 
-To generate the form you need to add the **af-form** tag (see example below). The **af-form** tag needs to specify the **formData** attribute. You can also specify the **edit** attribute.
+To generate the form you need to add the **af-form** tag (see example below). The **af-form** tag needs to specify the **structure** attribute and the **values** attribute. You can also specify the **edit** attribute.
 
 ```
-<af-form [formData]="formData" [edit]="true">Loading...</af-form>
+<af-form [structure]="structure" [values]="values" [edit]="edit">Loading...</af-form>
 ```
 
-The **formData** is a JSON object with the information about the form structure (see example below).
+The **structure** is a JSON object with the information about the form structure (see example below).
+
+```
+[
+	{
+		"label": "First name",
+		"options": null,
+		"tag": "inputTextTag",
+		"max": null,
+		"maxLength": null,
+		"min": null,
+		"name": "firstName",
+		"pattern": null,
+		"placeholder": "Enter your first name.",
+		"required": "required",
+		"size": null
+	},
+	{
+		"label": "Last name",
+		"options": null,
+		"tag": "inputTextTag",
+		"max": null,
+		"maxLength": null,
+		"min": null,
+		"name": "lastName",
+		"pattern": null,
+		"placeholder": "Enter your last name.",
+		"required": "required",
+		"size": null
+	}
+]
+```
+
+The **values** is a JSON object with the information about the form structure (see example below).
 
 ```
 {
-	"name": "edu.baylor.icpc.persistence.port.Person",
-	"fields": [
-		{
-			"label": "Email",
-			"max": null,
-			"maxLength": "255",
-			"min": null,
-			"name": "username",
-			"options": null,
-			"pattern": null,
-			"placeholder": null,
-			"required": "true",
-			"size": "30",
-			"tag": "input",
-			"type": "email"
-		}
-	],
-	"values": {
-		"username": "aa@gmail.com"
-	}
+	"firstName": "Filip",
+	"lastName": "Ryšavý"
 }
 ```
 
 ## Notes
 
-The current example only renders the form. I'm working on getting the data and sending the back to application. The final form of **af-form** and **formData** will change during the development.
+- The current example renders the form and gets values from it. 
+- The final form of **af-form**, **structure** and **values** may change during the development.
