@@ -1,0 +1,40 @@
+.title {
+    color: #dc143c;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.example {
+    background-color: #c0c0c0;
+    border: 1px solid #808080;
+    margin: 0.5em 0;
+    padding: 20px;
+}
+
+.example-title {
+    color: #000080;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.form-control {
+    margin: 0.5em 0;
+}
+
+/* AF-Form styles */
+
+.field {
+    height: 30px;
+    margin: 0.5em 0;
+}
+
+.label:after {
+    content: ":";
+}
+
+.required {
+    color: #ff0000;
+}
+
