@@ -30,20 +30,12 @@ public class Angular2Generator {
         for (MetaProperty metaProperty : metaProperties) {
             Angular2Field field = new Angular2Field();
             field.setName(metaProperty.getName());
-            field.setTag("inputTextTag");
+            field.setTag(context.getConfiguration().getTagPath(metaProperty, context));
 
             Map<String, Object> constrains = new HashMap<>();
             for (Variable variable : metaProperty.getTemplateVariables()) {
                 String varName = variable.getName();
                 Object varValue = variable.getValue();
-
-                if (varName.equals("dataType") && varValue.equals("boolean")) {
-                    field.setTag("inputBooleanTag");
-                } else if (varName.equals("email") && varValue.equals(true)) {
-                    field.setTag("inputEmailTag");
-                } else if (varName.equals("password") && varValue.equals(true)) {
-                    field.setTag("inputPasswordTag");
-                }
 
                 if (isVariableObserved(varName)) {
                     constrains.put(varName, varValue.toString());
@@ -103,21 +95,17 @@ public class Angular2Generator {
     }
 
 //    private static void printFieldMappings(List<MetaProperty> metaProperties, Context context) throws Exception {
+//        System.out.println("[ENTITY]");
 //        System.out.println();
-//        System.out.println("DEBUG START...");
 //        for (MetaProperty metaProperty : metaProperties) {
+//            System.out.println("[PROPERTY]");
+//            System.out.println(metaProperty.getName() + " " + context.getConfiguration().getTagPath(metaProperty, context));
 //            System.out.println();
-//            System.out.println("PROPERTY...");
-//            String tagPath = context.getConfiguration().getTagPath(metaProperty, context);
-//            System.out.println(metaProperty.getName() + " " + tagPath);
 //            for (Variable var : metaProperty.getTemplateVariables()) {
-//                System.out.println();
-//                System.out.println("VARIABLE...");
 //                System.out.println(var.getName() + " " + var.getValue());
 //            }
+//            System.out.println();
 //        }
-//        System.out.println();
-//        System.out.println("DEBUG END...");
 //    }
 
 }

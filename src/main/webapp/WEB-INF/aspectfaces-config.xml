@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aspectfaces-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://aspectfaces.com/schema/j2ee"
-					xsi:schemaLocation="http://aspectfaces.com/schema/j2ee http://aspectfaces.com/schema/j2ee/aspectfaces-config-1.4.0-SNAPSHOT.xsd">
+<aspectfaces-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xmlns="http://aspectfaces.com/schema/j2ee"
+					xsi:schemaLocation="http://aspectfaces.com/schema/j2ee http://aspectfaces.com/schema/j2ee/aspectfaces-config-1.5.0-SNAPSHOT.xsd">
 
 	<configurations-registration>
-		<configuration name="default" path="/WEB-INF/af/html.config.xml" check-modification="true" lazy-load="true"/>
-		<configuration name="table" path="/WEB-INF/af/table.config.xml" check-modification="true" lazy-load="true"/>
+		<configuration name="default" path="/WEB-INF/af/angular2.config.xml" check-modification="true" lazy-load="true"/>
 	</configurations-registration>
 
 	<annotations-registration>
-
 		<!-- AspectFaces annotations -->
 		<name>com.codingcrayons.aspectfaces.annotation.descriptors.UiCollectionAnnotationDescriptor</name>
 		<name>com.codingcrayons.aspectfaces.annotation.descriptors.UiFormOrderAnnotationDescriptor</name>
@@ -65,7 +64,6 @@
 
 		<!-- AspectFaces with Angular 2 annotations -->
 		<name>cz.cvut.fel.rysavfi1.aspectfaces.annotation.descriptors.UiPlaceholderAnnotationDescriptor</name>
-
 	</annotations-registration>
 
 </aspectfaces-config>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns="http://aspectfaces.com/schema/aspectfaces"
+               xsi:schemaLocation="http://aspectfaces.com/schema/aspectfaces http://www.aspectfaces.com/schema/af-configuration-1.5.0-SNAPSHOT.xsd">
+
+    <mapping>
+        <type>String</type>
+        <default tag="inputTextTag"/>
+        <condition expression="${not empty email and email == true}" tag="inputEmailTag"/>
+        <condition expression="${not empty password and password == true}" tag="inputPasswordTag"/>
+    </mapping>
+
+    <mapping>
+        <type>Integer</type>
+        <type>int</type>
+        <default tag="inputTextTag"/>
+    </mapping>
+
+    <mapping>
+        <type>Boolean</type>
+        <type>boolean</type>
+        <default tag="inputBooleanTag"/>
+    </mapping>
+
+    <ignore-fields/>
+
+</configuration>
