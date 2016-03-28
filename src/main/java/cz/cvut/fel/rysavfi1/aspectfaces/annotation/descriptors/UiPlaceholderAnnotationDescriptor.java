@@ -12,7 +12,7 @@ public class UiPlaceholderAnnotationDescriptor implements AnnotationDescriptor, 
 
     @Override
     public String getAnnotationName() {
-        return "cz.cvut.fel.rysavfi1.aspectfaces.annotation.UiPlaceholder";
+        return "cz.cvut.fel.rysavfi1.aspectfaces.annotations.UiPlaceholder";
     }
 
     @Override
