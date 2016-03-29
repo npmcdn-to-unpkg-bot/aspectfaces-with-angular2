@@ -1,13 +1,12 @@
 import {Component, Input} from "angular2/core";
 
 import {InputBooleanComponent} from "./tags/input-boolean.component";
-import {InputDateComponent} from "./tags/input-date.component";
 import {InputEmailComponent} from "./tags/input-email.component";
 import {InputPasswordComponent} from "./tags/input-password.component";
 import {InputTextComponent} from "./tags/input-text.component";
 
 @Component({
-    directives: [InputBooleanComponent, InputDateComponent, InputEmailComponent, InputPasswordComponent, InputTextComponent],
+    directives: [InputBooleanComponent, InputEmailComponent, InputPasswordComponent, InputTextComponent],
     selector: 'af-form',
     template: `
         <div *ngFor="#field of structure" [ngSwitch]="field.tag" class="field">
@@ -26,10 +25,6 @@ import {InputTextComponent} from "./tags/input-text.component";
             <af-input-boolean *ngSwitchWhen="'inputBoolean'" [fieldData]="field" [values]="values" [edit]="edit">
                 Loading InputBooleanComponent...
             </af-input-boolean>
-            
-            <af-input-date *ngSwitchWhen="'inputDate'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading InputDateComponent...
-            </af-input-date>
             
             <div *ngSwitchDefault>Tag {{field.tag}} isn't supported.</div>
         </div>

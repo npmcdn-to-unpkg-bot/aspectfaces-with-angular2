@@ -46,7 +46,7 @@ public class Angular2Generator {
             structure.add(field);
         }
 
-//        printFieldMappings(metaProperties, context);
+        // printFieldMappings(metaProperties, context);
 
         return structure;
     }
@@ -94,18 +94,18 @@ public class Angular2Generator {
         return true;
     }
 
-//    private static void printFieldMappings(List<MetaProperty> metaProperties, Context context) throws Exception {
-//        System.out.println("[ENTITY]");
-//        System.out.println();
-//        for (MetaProperty metaProperty : metaProperties) {
-//            System.out.println("[PROPERTY]");
-//            System.out.println(metaProperty.getName() + " " + context.getConfiguration().getTagPath(metaProperty, context));
-//            System.out.println();
-//            for (Variable var : metaProperty.getTemplateVariables()) {
-//                System.out.println(var.getName() + " " + var.getValue());
-//            }
-//            System.out.println();
-//        }
-//    }
+    private static void printFieldMappings(List<MetaProperty> metaProperties, Context context) throws Exception {
+        System.out.println("[ENTITY]");
+        System.out.println();
+        for (MetaProperty metaProperty : metaProperties) {
+            System.out.println("[PROPERTY]");
+            System.out.println(metaProperty.getName() + " " + context.getConfiguration().getTagPath(metaProperty, context));
+            System.out.println();
+            for (Variable var : metaProperty.getTemplateVariables()) {
+                System.out.println(var.getName() + " " + var.getValue());
+            }
+            System.out.println();
+        }
+    }
 
 }
