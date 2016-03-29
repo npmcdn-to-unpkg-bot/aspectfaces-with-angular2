@@ -5,21 +5,21 @@
 
     <mapping>
         <type>String</type>
-        <default tag="inputTextTag"/>
-        <condition expression="${not empty email and email == true}" tag="inputEmailTag"/>
-        <condition expression="${not empty password and password == true}" tag="inputPasswordTag"/>
+        <default tag="inputText"/>
+        <condition expression="${not empty email and email == true}" tag="inputEmail"/>
+        <condition expression="${not empty password and password == true}" tag="inputPassword"/>
     </mapping>
 
     <mapping>
         <type>Integer</type>
         <type>int</type>
-        <default tag="inputTextTag"/>
+        <default tag="inputText"/>
     </mapping>
 
     <mapping>
         <type>Boolean</type>
         <type>boolean</type>
-        <default tag="inputBooleanTag"/>
+        <default tag="inputBoolean"/>
     </mapping>
 
     <ignore-fields/>

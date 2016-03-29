@@ -1,4 +1,4 @@
-System.register(['angular2/core', "angular2/http", "../af-forms/af-form.component"], function(exports_1, context_1) {
+System.register(['angular2/core', "angular2/http", "../aspectfaces-with-angular2/form.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "angular2/http", "../af-forms/af-form.componen
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, af_form_component_1;
+    var core_1, http_1, form_component_1;
     var PersonComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['angular2/core', "angular2/http", "../af-forms/af-form.componen
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (af_form_component_1_1) {
-                af_form_component_1 = af_form_component_1_1;
+            function (form_component_1_1) {
+                form_component_1 = form_component_1_1;
             }],
         execute: function() {
             PersonComponent = (function () {
@@ -42,7 +42,7 @@ System.register(['angular2/core', "angular2/http", "../af-forms/af-form.componen
                 };
                 PersonComponent = __decorate([
                     core_1.Component({
-                        directives: [af_form_component_1.AFFormComponent],
+                        directives: [form_component_1.FormComponent],
                         selector: 'person-component',
                         template: "\n        <div class=\"example-title\">cz.cvut.fel.rysavfi1.example.model.Person</div>\n        <hr>\n        <a href=\"http://localhost:8080/aspectfaces-with-angular2-1.0-SNAPSHOT/rest/angular2/structure\">Structure</a>\n        <a href=\"http://localhost:8080/aspectfaces-with-angular2-1.0-SNAPSHOT/rest/angular2/values\">Values</a>\n        <hr>\n        <form (submit)=\"onSubmit()\">\n            <af-form [structure]=\"structure\" [values]=\"values\" [edit]=\"edit\">Loading...</af-form>\n            <button type=\"submit\" *ngIf=\"edit\">Submit</button>\n            <button type=\"button\" (click)=\"edit = !edit\">{{edit ? 'Read' : 'Edit'}}</button>\n        </form>\n        <hr>\n        <pre>{{values | json}}</pre>\n    "
                     }), 

@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
 import {Headers, Http} from "angular2/http";
 
-import {AFFormComponent} from "../af-forms/af-form.component";
+import {FormComponent} from "../aspectfaces-with-angular2/form.component";
 
 @Component({
-    directives: [AFFormComponent],
+    directives: [FormComponent],
     selector: 'person-component',
     template: `
         <div class="example-title">cz.cvut.fel.rysavfi1.example.model.Person</div>
