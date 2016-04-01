@@ -8,7 +8,7 @@ public class Angular2Field {
 
     private String tag;
 
-    private Map<String, Object> constrains;
+    private Map<String, Object> constraints;
 
     public Angular2Field() {
     }
@@ -29,12 +29,12 @@ public class Angular2Field {
         this.tag = tag;
     }
 
-    public Map<String, Object> getConstrains() {
-        return constrains;
+    public Map<String, Object> getConstraints() {
+        return constraints;
     }
 
-    public void setConstrains(Map<String, Object> constrains) {
-        this.constrains = constrains;
+    public void setConstraints(Map<String, Object> constraints) {
+        this.constraints = constraints;
     }
 
 }

@@ -32,16 +32,16 @@ public class Angular2Generator {
             field.setName(metaProperty.getName());
             field.setTag(context.getConfiguration().getTagPath(metaProperty, context));
 
-            Map<String, Object> constrains = new HashMap<>();
+            Map<String, Object> constraints = new HashMap<>();
             for (Variable variable : metaProperty.getTemplateVariables()) {
                 String varName = variable.getName();
                 Object varValue = variable.getValue();
 
                 if (isVariableObserved(varName)) {
-                    constrains.put(varName, varValue.toString());
+                    constraints.put(varName, varValue.toString());
                 }
             }
-            field.setConstrains(constrains);
+            field.setConstraints(constraints);
 
             structure.add(field);
         }
