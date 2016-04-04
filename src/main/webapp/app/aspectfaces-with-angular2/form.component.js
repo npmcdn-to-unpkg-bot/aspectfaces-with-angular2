@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./tags/input-boolean.component", "./tags/input-email.component", "./tags/input-password.component", "./tags/input-text.component"], function(exports_1, context_1) {
+System.register(["angular2/core", "./tags/input-boolean.component", "./tags/input-email.component", "./tags/input-number.component", "./tags/input-password.component", "./tags/input-text.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "./tags/input-boolean.component", "./tags/inpu
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, input_boolean_component_1, input_email_component_1, input_password_component_1, input_text_component_1;
+    var core_1, input_boolean_component_1, input_email_component_1, input_number_component_1, input_password_component_1, input_text_component_1;
     var FormComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(["angular2/core", "./tags/input-boolean.component", "./tags/inpu
             },
             function (input_email_component_1_1) {
                 input_email_component_1 = input_email_component_1_1;
+            },
+            function (input_number_component_1_1) {
+                input_number_component_1 = input_number_component_1_1;
             },
             function (input_password_component_1_1) {
                 input_password_component_1 = input_password_component_1_1;
@@ -50,9 +53,10 @@ System.register(["angular2/core", "./tags/input-boolean.component", "./tags/inpu
                 ], FormComponent.prototype, "edit", void 0);
                 FormComponent = __decorate([
                     core_1.Component({
-                        directives: [input_boolean_component_1.InputBooleanComponent, input_email_component_1.InputEmailComponent, input_password_component_1.InputPasswordComponent, input_text_component_1.InputTextComponent],
+                        directives: [input_boolean_component_1.InputBooleanComponent, input_email_component_1.InputEmailComponent, input_number_component_1.InputNumberComponent, input_password_component_1.InputPasswordComponent,
+                            input_text_component_1.InputTextComponent],
                         selector: 'af-form',
-                        template: "\n        <div *ngFor=\"#field of structure\" [ngSwitch]=\"field.tag\" class=\"field\">\n            <af-input-text *ngSwitchWhen=\"'inputText'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputTextComponent...\n            </af-input-text>\n            \n            <af-input-email *ngSwitchWhen=\"'inputEmail'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputEmailComponent...\n            </af-input-email>\n            \n            <af-input-password *ngSwitchWhen=\"'inputPassword'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputPasswordComponent...\n            </af-input-password>\n            \n            <af-input-boolean *ngSwitchWhen=\"'inputBoolean'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputBooleanComponent...\n            </af-input-boolean>\n            \n            <div *ngSwitchDefault>Tag {{field.tag}} isn't supported.</div>\n        </div>\n    "
+                        template: "\n        <div *ngFor=\"#field of structure\" [ngSwitch]=\"field.tag\" class=\"field\">\n            <af-input-boolean *ngSwitchWhen=\"'inputBoolean'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputBooleanComponent...\n            </af-input-boolean>\n            \n            <af-input-email *ngSwitchWhen=\"'inputEmail'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputEmailComponent...\n            </af-input-email>\n            \n            <af-input-number *ngSwitchWhen=\"'inputNumber'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputNumberComponent...\n            </af-input-number>\n            \n            <af-input-password *ngSwitchWhen=\"'inputPassword'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputPasswordComponent...\n            </af-input-password>\n            \n            <af-input-text *ngSwitchWhen=\"'inputText'\" [fieldData]=\"field\" [values]=\"values\" [edit]=\"edit\">\n                Loading InputTextComponent...\n            </af-input-text>\n            \n            <div *ngSwitchDefault>Tag {{field.tag}} isn't supported.</div>\n        </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], FormComponent);

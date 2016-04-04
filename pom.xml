@@ -44,12 +44,6 @@
             <artifactId>annotation-descriptors</artifactId>
             <version>1.5.0-SNAPSHOT</version>
         </dependency>
-        <!-- AspectFaces with Angular 2 -->
-        <dependency>
-            <groupId>cz.cvut.fel.rysavfi1.aspectfaces</groupId>
-            <artifactId>aspectfaces-with-angular2</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!-- Annotations -->
         <dependency>
             <groupId>javax.persistence</groupId>
