@@ -15,13 +15,13 @@ import java.util.List;
 @Path("angular2")
 public class Angular2Endpoint {
 
-    private static Person examplePerson = new Person("James", "Smith", "james.smith@gmail.com", "1234", true, false);
+    private static Person examplePerson = new Person("James", "Smith", Person.Gender.MALE, "james.smith@gmail.com", "1234", true, false);
 
     @GET
     @Path("structure")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Angular2Field> getStructure() throws Exception {
-        return Angular2Generator.generateStructure(Person.class);
+        return Angular2Generator.generateStructure(Person.class, "default");
     }
 
     @GET

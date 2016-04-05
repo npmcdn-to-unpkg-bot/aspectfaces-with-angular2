@@ -15,12 +15,9 @@ import java.util.Map;
 
 public class Angular2Generator {
 
-    /**
-     * Generates entity structure for Angular 2 forms.
-     */
-    public static List<Angular2Field> generateStructure(Class<?> entity) throws Exception {
+    public static List<Angular2Field> generateStructure(Class<?> entity, String configurationName) throws Exception {
         // Get meta properties using AspectFaces
-        Context context = initContext();
+        Context context = initContext(configurationName);
         List<MetaProperty> metaProperties = getMetaProperties(entity, context);
 
         // Init structure
@@ -43,27 +40,28 @@ public class Angular2Generator {
             }
             field.setConstraints(constraints);
 
+            if (metaProperty.getVariable("dataType").getValue().equals("enum")) {
+                List<Object> options = new ArrayList<>();
+                Class c = Class.forName((String) metaProperty.getVariable("DataTypeFullClassName").getValue());
+                for (Object o : c.getEnumConstants()) {
+                    options.add(o);
+                }
+                field.setOptions(options);
+            }
+
             structure.add(field);
         }
-
-        // printFieldMappings(metaProperties, context);
 
         return structure;
     }
 
-    /**
-     * Initializes AspectFaces context.
-     */
-    private static Context initContext() throws Exception {
+    private static Context initContext(String configurationName) throws Exception {
         Context context = new Context();
-        Configuration configuration = ConfigurationStorage.getInstance().getConfiguration("default");
+        Configuration configuration = ConfigurationStorage.getInstance().getConfiguration(configurationName);
         context.setConfiguration(configuration);
         return context;
     }
 
-    /**
-     * Gets AspectFaces meta properties.
-     */
     private static List<MetaProperty> getMetaProperties(Class<?> entity, Context context) throws Exception {
         JavaInspector inspector = new JavaInspector(entity);
         List<MetaProperty> metaProperties = inspector.inspect(context);
@@ -73,18 +71,12 @@ public class Angular2Generator {
         return metaProperties;
     }
 
-    /**
-     * List of ignored AspectFaces variables.
-     */
     private static final String[] ignoredVariables = {
             "className", "ClassName", "dataType", "DataType", "DataTypeFullClassName", "email", "entityBean", "field",
             "fieldName", "FieldName", "fragment", "fullClassName", "FullClassName", "instance", "notNull", "password",
             "value"
     };
 
-    /**
-     * Tell if AspectFaces variable if observed or not.
-     */
     private static boolean isVariableObserved(String variable) {
         for (String ignoredVariable : ignoredVariables) {
             if (variable.equals(ignoredVariable)) {
@@ -92,20 +84,6 @@ public class Angular2Generator {
             }
         }
         return true;
-    }
-
-    private static void printFieldMappings(List<MetaProperty> metaProperties, Context context) throws Exception {
-        System.out.println("[ENTITY]");
-        System.out.println();
-        for (MetaProperty metaProperty : metaProperties) {
-            System.out.println("[PROPERTY]");
-            System.out.println(metaProperty.getName() + " " + context.getConfiguration().getTagPath(metaProperty, context));
-            System.out.println();
-            for (Variable var : metaProperty.getTemplateVariables()) {
-                System.out.println(var.getName() + " " + var.getValue());
-            }
-            System.out.println();
-        }
     }
 
 }

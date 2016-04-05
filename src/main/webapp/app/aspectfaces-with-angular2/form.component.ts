@@ -5,10 +5,11 @@ import {InputEmailComponent} from "./tags/input-email.component";
 import {InputNumberComponent} from "./tags/input-number.component";
 import {InputPasswordComponent} from "./tags/input-password.component";
 import {InputTextComponent} from "./tags/input-text.component";
+import {SelectEnumComponent} from "./tags/select-enum.component";
 
 @Component({
     directives: [InputBooleanComponent, InputEmailComponent, InputNumberComponent, InputPasswordComponent,
-        InputTextComponent],
+        InputTextComponent, SelectEnumComponent],
     selector: 'af-form',
     template: `
         <div *ngFor="#field of structure" [ngSwitch]="field.tag" class="field">
@@ -31,6 +32,10 @@ import {InputTextComponent} from "./tags/input-text.component";
             <af-input-text *ngSwitchWhen="'inputText'" [fieldData]="field" [values]="values" [edit]="edit">
                 Loading InputTextComponent...
             </af-input-text>
+            
+            <af-select-enum *ngSwitchWhen="'selectEnum'" [fieldData]="field" [values]="values" [edit]="edit">
+                Loading SelectEnumComponent...
+            </af-select-enum>
             
             <div *ngSwitchDefault>Tag {{field.tag}} isn't supported.</div>
         </div>

@@ -10,9 +10,16 @@ import javax.validation.constraints.NotNull;
 
 public class Person {
 
+    public enum Gender {
+        FEMALE,
+        MALE
+    }
+
     private String firstName;
 
     private String lastName;
+
+    private Gender gender;
 
     private String email;
 
@@ -25,16 +32,17 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName, String email, String password, boolean termsAccepted, boolean admin) {
+    public Person(String firstName, String lastName, Gender gender, String email, String password, boolean termsAccepted, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
         this.email = email;
         this.password = password;
         this.termsAccepted = termsAccepted;
         this.admin = admin;
     }
 
-    @UiOrder(10)
+    @UiOrder(1)
     @UiPlaceholder("Enter your first name.")
     public String getFirstName() {
         return firstName;
@@ -44,7 +52,7 @@ public class Person {
         this.firstName = firstName;
     }
 
-    @UiOrder(20)
+    @UiOrder(2)
     @UiPlaceholder("Enter your last name.")
     public String getLastName() {
         return lastName;
@@ -54,9 +62,18 @@ public class Person {
         this.lastName = lastName;
     }
 
+    @UiOrder(3)
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     @Email
     @NotNull
-    @UiOrder(30)
+    @UiOrder(4)
     @UiPlaceholder("Enter your e-mail.")
     public String getEmail() {
         return email;
@@ -67,7 +84,7 @@ public class Person {
     }
 
     @NotNull
-    @UiOrder(40)
+    @UiOrder(5)
     @UiPassword
     @UiPlaceholder("Enter your password.")
     public String getPassword() {
@@ -79,7 +96,7 @@ public class Person {
     }
 
     @NotNull
-    @UiOrder(50)
+    @UiOrder(6)
     @UiPlaceholder("I agree with terms of use.")
     public boolean isTermsAccepted() {
         return termsAccepted;
