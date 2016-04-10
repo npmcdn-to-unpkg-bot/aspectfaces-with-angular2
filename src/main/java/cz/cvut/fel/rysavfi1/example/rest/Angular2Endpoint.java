@@ -12,27 +12,27 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("angular2")
+@Path("/angular2")
 public class Angular2Endpoint {
 
     private static Person examplePerson = new Person("James", "Smith", Person.Gender.MALE, "james.smith@gmail.com", "1234", true, false);
 
     @GET
-    @Path("structure")
+    @Path("/structure")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Angular2Field> getStructure() throws Exception {
         return Angular2Generator.generateStructure(Person.class, "default");
     }
 
     @GET
-    @Path("values")
+    @Path("/values")
     @Produces(MediaType.APPLICATION_JSON)
     public Person getValues() {
         return examplePerson;
     }
 
     @POST
-    @Path("post")
+    @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
     public void postValues(Person person) {
         examplePerson = person;
