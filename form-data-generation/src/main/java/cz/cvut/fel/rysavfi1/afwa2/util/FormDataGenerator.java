@@ -14,10 +14,13 @@ import com.codingcrayons.aspectfaces.exceptions.EvaluatorException;
 import com.codingcrayons.aspectfaces.metamodel.JavaInspector;
 import com.codingcrayons.aspectfaces.metamodel.MetaProperty;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class FormDataGenerator {
 
@@ -26,7 +29,8 @@ public class FormDataGenerator {
      */
     public static List<Angular2Field> generateStructure(Class<?> entity, String configurationName)
             throws ConfigurationNotFoundException, ConfigurationFileNotFoundException, ConfigurationParsingException,
-            EvaluatorException, AnnotationNotFoundException, AnnotationNotRegisteredException, ClassNotFoundException {
+            EvaluatorException, AnnotationNotFoundException, AnnotationNotRegisteredException, ClassNotFoundException,
+            IOException {
         // Get AspectFaces meta properties
         Context context = initContext(configurationName);
         List<MetaProperty> metaProperties = getMetaProperties(entity, context);
@@ -57,8 +61,14 @@ public class FormDataGenerator {
             if (metaProperty.getVariable("dataType").getValue().equals("enum")) {
                 List<Angular2Option> options = new ArrayList<>();
                 Class c = Class.forName((String) metaProperty.getVariable("DataTypeFullClassName").getValue());
+
+                Properties prop = new Properties();
+                InputStream input = FormDataGenerator.class.getClassLoader().getResourceAsStream("afwa2-option-labels.properties");
+                prop.load(input);
+
                 for (Object o : c.getEnumConstants()) {
                     Angular2Option option = new Angular2Option();
+                    option.setLabel(prop.getProperty((String) metaProperty.getVariable("DataTypeFullClassName").getValue() + "." + o));
                     option.setValue(o);
                     options.add(option);
                 }
