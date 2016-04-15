@@ -1,42 +1,39 @@
-import {Component, Input} from "angular2/core";
+import {Component, Input} from 'angular2/core';
 
-import {InputBooleanComponent} from "./tags/input-boolean.component";
-import {InputEmailComponent} from "./tags/input-email.component";
-import {InputNumberComponent} from "./tags/input-number.component";
-import {InputPasswordComponent} from "./tags/input-password.component";
-import {InputTextComponent} from "./tags/input-text.component";
-import {SelectEnumComponent} from "./tags/select-enum.component";
+import {DefaultInputComponent} from './tags/default-input.component';
+import {DefaultSelectComponent} from './tags/default-select.component';
 
 @Component({
-    directives: [InputBooleanComponent, InputEmailComponent, InputNumberComponent, InputPasswordComponent,
-        InputTextComponent, SelectEnumComponent],
+    directives: [DefaultInputComponent, DefaultSelectComponent],
     selector: 'af-form',
     template: `
         <div *ngFor="#field of structure" [ngSwitch]="field.tag" class="field">
-            <af-input-boolean *ngSwitchWhen="'inputBoolean'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading InputBooleanComponent...
-            </af-input-boolean>
+            <af-default-input *ngSwitchWhen="'inputBoolean'" [fieldData]="field" [values]="values" [edit]="edit" [type]="checkbox">
+                Loading DefaultInputComponent...
+            </af-default-input>
             
-            <af-input-email *ngSwitchWhen="'inputEmail'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading InputEmailComponent...
-            </af-input-email>
+            <af-default-input *ngSwitchWhen="'inputEmail'" [fieldData]="field" [values]="values" [edit]="edit" [type]="email">
+                Loading DefaultInputComponent...
+            </af-default-input>
             
-            <af-input-number *ngSwitchWhen="'inputNumber'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading InputNumberComponent...
-            </af-input-number>
+            <af-default-input *ngSwitchWhen="'inputNumber'" [fieldData]="field" [values]="values" [edit]="edit" [type]="number">
+                Loading DefaultInputComponent...
+            </af-default-input>
             
-            <af-input-password *ngSwitchWhen="'inputPassword'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading InputPasswordComponent...
-            </af-input-password>
+            <af-default-input *ngSwitchWhen="'inputPassword'" [fieldData]="field" [values]="values" [edit]="edit" [type]="password">
+                Loading DefaultInputComponent...
+            </af-default-input>
             
-            <af-input-text *ngSwitchWhen="'inputText'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading InputTextComponent...
-            </af-input-text>
+            <af-default-input *ngSwitchWhen="'inputText'" [fieldData]="field" [values]="values" [edit]="edit" [type]="text">
+                Loading DefaultInputComponent...
+            </af-default-input>
             
-            <af-select-enum *ngSwitchWhen="'selectEnum'" [fieldData]="field" [values]="values" [edit]="edit">
-                Loading SelectEnumComponent...
-            </af-select-enum>
+            <af-default-select *ngSwitchWhen="'selectEnum'" [fieldData]="field" [values]="values" [edit]="edit">
+                Loading DefaultSelectComponent...
+            </af-default-select>
 
+            <!-- Place your custom tags here. -->
+            
             <div *ngSwitchDefault>Tag {{field.tag}} isn't supported.</div>
         </div>
     `

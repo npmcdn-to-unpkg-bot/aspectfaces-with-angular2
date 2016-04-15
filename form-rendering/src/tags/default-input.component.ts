@@ -1,20 +1,23 @@
-import {Component, Input} from "angular2/core";
+import {Component, Input} from 'angular2/core';
 
 @Component({
-    selector: 'af-select-enum',
+    selector: 'af-default-input',
     template: `
         <div *ngIf="edit">
             <label *ngIf="fieldData.constraints.label" class="label">{{fieldData.constraints.label}}</label>
             <span *ngIf="fieldData.constraints.required == 'true'" class="required">*</span>
-            <select class="value"
+            <input class="value"
                 [(ngModel)]="values[fieldData.name]"
+                [attr.max]="fieldData.constraints.max"
+                [attr.maxlength]="fieldData.constraints.maxLength"
+                [attr.min]="fieldData.constraints.min"
+                [attr.minlength]="fieldData.constraints.minLength"
                 [attr.name]="fieldData.name"
+                [attr.pattern]="fieldData.constraints.pattern"
+                [attr.placeholder]="fieldData.constraints.placeholder"
                 [attr.required]="fieldData.constraints.required == 'true' ? 'required' : null"
-                [attr.size]="fieldData.constraints.size">
-                <option *ngFor="#option of fieldData.options"
-                    [attr.value]="option"
-                    [attr.selected]="option == values[fieldData.name] ? 'selected' : null">{{option}}</option>
-            </select>
+                [attr.size]="fieldData.constraints.size"
+                [attr.type]="type">
         </div>
         
         <div *ngIf="!edit">
@@ -24,7 +27,7 @@ import {Component, Input} from "angular2/core";
         </div>
     `
 })
-export class SelectEnumComponent {
+export class DefaultInputComponent {
 
     @Input()
     private fieldData = {};
@@ -34,5 +37,8 @@ export class SelectEnumComponent {
 
     @Input()
     private edit:boolean = true;
+
+    @Input()
+    private type:string = null;
 
 }
