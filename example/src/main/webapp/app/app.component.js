@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', './form-rendering/form.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', './afwa2-form-rendering'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', './form-rendering/form.compon
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, form_component_1;
+    var core_1, http_1, afwa2_form_rendering_1;
     var AppComponent;
     return {
         setters:[
@@ -20,8 +20,8 @@ System.register(['angular2/core', 'angular2/http', './form-rendering/form.compon
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (form_component_1_1) {
-                form_component_1 = form_component_1_1;
+            function (afwa2_form_rendering_1_1) {
+                afwa2_form_rendering_1 = afwa2_form_rendering_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -41,7 +41,7 @@ System.register(['angular2/core', 'angular2/http', './form-rendering/form.compon
                 };
                 AppComponent = __decorate([
                     core_1.Component({
-                        directives: [form_component_1.FormComponent],
+                        directives: [afwa2_form_rendering_1.FormComponent],
                         selector: 'my-app',
                         template: "\n        <h1>AspectFaces with Angular 2</h1>\n        <hr>\n        <a href=\"http://localhost:8080/example-1.0.0/rest/angular2/structure\">Structure</a>\n        <a href=\"http://localhost:8080/example-1.0.0/rest/angular2/values\">Values</a>\n        <hr>\n        <form (submit)=\"onSubmit()\">\n            <af-form [structure]=\"structure\" [values]=\"values\" [edit]=\"edit\">Loading...</af-form>\n            <button type=\"submit\" *ngIf=\"edit\">Submit</button>\n            <button type=\"button\" (click)=\"edit = !edit\">{{edit ? 'Read' : 'Edit'}}</button>\n        </form>\n        <hr>\n        <pre>{{values | json}}</pre>\n    "
                     }), 

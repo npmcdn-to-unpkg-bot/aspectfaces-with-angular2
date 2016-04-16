@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {Headers, Http} from 'angular2/http';
-import {FormComponent} from './form-rendering/form.component';
+import {FormComponent} from './afwa2-form-rendering';
 
 @Component({
     directives: [FormComponent],
